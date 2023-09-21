@@ -31,6 +31,7 @@ return {
 			vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
 			vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
 			vim.keymap.set("n", "a", api.fs.create, opts("Create"))
+			vim.keymap.set("n", "D", api.fs.remove, opts("Delete"))
 			vim.keymap.set("n", "<CR>", api.tree.change_root_to_node, opts("CD"))
 		end
 
