@@ -74,6 +74,12 @@ return {
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				python = {
+					pythonPath = "/usr/bin/python3",
+				},
+				pyright = {},
+			},
 		})
 
 		-- configure lua server (with special settings)
