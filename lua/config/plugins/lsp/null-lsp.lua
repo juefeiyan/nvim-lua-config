@@ -1,6 +1,7 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
 	event = { "BufReadPre", "BufNewFile" },
+	ft = { "python", "java" },
 	config = function()
 		-- import null-ls plugin
 		local null_ls = require("null-ls")
@@ -20,6 +21,9 @@ return {
 			root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 			-- setup formatters & linters
 			sources = {
+				null_ls.builtins.diagnostics.mypy,
+				null_ls.builtins.diagnostics.ruff,
+				null_ls.builtins.formatting.black,
 				null_ls.builtins.code_actions.gitsigns,
 				null_ls.builtins.completion.spell.with({
 					filetypes = { "gitcommit", "markdown", "text" },

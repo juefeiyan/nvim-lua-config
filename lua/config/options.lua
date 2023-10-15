@@ -21,4 +21,5 @@ vim.o.showmode = false -- Dont show mode since we have a statusline
 vim.o.undofile = true
 vim.o.undolevels = 10000
 vim.o.wrap = false
-
+vim.o.wildmenu = true
+vim.o.wildmode = "longest:full,full"

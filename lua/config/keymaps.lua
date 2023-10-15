@@ -3,58 +3,18 @@ local mode_v = { "v" }
 local mode_i = { "i" }
 local nmappings = {
 	-- Movement
-	{
-		from = "J",
-		to = "5j",
-		mode = mode_nv,
-	},
-	{
-		from = "K",
-		to = "5k",
-		mode = mode_nv,
-	},
-	{
-		from = "H",
-		to = "^",
-		mode = mode_nv,
-	},
-	{
-		from = "L",
-		to = "$",
-		mode = mode_nv,
-	},
-	{
-		from = "n",
-		to = "nzz",
-		mode = mode_nv,
-	},
-	{
-		from = "N",
-		to = "Nzz",
-		mode = mode_nv,
-	},
+	{ from = "J", to = "5j", mode = mode_nv },
+	{ from = "K", to = "5k", mode = mode_nv },
+	{ from = "H", to = "^", mode = mode_nv },
+	{ from = "L", to = "$", mode = mode_nv },
+	{ from = "n", to = "nzz", mode = mode_nv },
+	{ from = "N", to = "Nzz", mode = mode_nv },
 
 	-- Split Screen
-	{
-		from = "Sh",
-		to = ":set nosplitright<CR>:vsplit<CR>",
-		mode = mode_nv,
-	},
-	{
-		from = "Sl",
-		to = ":set splitright<CR>:vsplit<CR>",
-		mode = mode_nv,
-	},
-	{
-		from = "Sk",
-		to = ":set nosplitbelow<CR>:split<CR>",
-		mode = mode_nv,
-	},
-	{
-		from = "Sj",
-		to = ":set splitbelow<CR>:split<CR>",
-		mode = mode_nv,
-	},
+	{ from = "Sh", to = ":set nosplitright<CR>:vsplit<CR>", mode = mode_nv },
+	{ from = "Sl", to = ":set splitright<CR>:vsplit<CR>", mode = mode_nv },
+	{ from = "Sk", to = ":set nosplitbelow<CR>:split<CR>", mode = mode_nv },
+	{ from = "Sj", to = ":set splitbelow<CR>:split<CR>", mode = mode_nv },
 
 	-- Tab
 	{ from = "tk", to = ":tabe<CR>", mode = mode_nv },

@@ -31,6 +31,10 @@ return {
 			if root_dir == "" then
 				return
 			end
+
+			local java_debug_dir = vim.fn.stdpath("data") .. "/mason/share/java-debug-adapter/"
+			-- local java_debug_dir = vim.fn.stdpath("data") .. "/mason/share/java-debug-adapter/"
+			local vs_code_test_dir = vim.fn.stdpath("data") .. "/mason/share/java-test/"
 			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 			local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
 			os.execute("mkdir " .. workspace_dir)
@@ -39,11 +43,6 @@ return {
 				local function buf_set_keymap(...)
 					vim.api.nvim_buf_set_keymap(bufnr, ...)
 				end
-				local function buf_set_option(...)
-					vim.api.nvim_buf_set_option(bufnr, ...)
-				end
-
-				buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 				-- Mappings.
 				local opts = { noremap = true, silent = true }
@@ -68,9 +67,15 @@ return {
 				buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 				-- Java specific
 				buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+				buf_set_keymap("n", "<leader>aj", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+				require("jdtls").setup_dap({ hotcodereplace = "auto" })
 			end
 			local function attach_jdtls()
 				-- Configuration can be augmented and overridden by opts.jdtls
+				local bundles = {
+					vim.fn.glob(java_debug_dir .. "com.microsoft.java.debug.plugin-*.jar", 1),
+				}
+				vim.list_extend(bundles, vim.split(vim.fn.glob(vs_code_test_dir .. "/*.jar", 1), "\n"))
 				local config = {
 					on_attach = on_attach,
 					cmd = {
@@ -95,7 +100,7 @@ return {
 					},
 					root_dir = root_dir,
 					init_options = {
-						bundles = {},
+						bundles = bundles,
 					},
 					-- enable CMP capabilities
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
