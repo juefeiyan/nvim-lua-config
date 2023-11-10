@@ -26,6 +26,8 @@ local nmappings = {
 	{ from = "<down>", to = ":res -5<CR>", mode = mode_nv },
 	{ from = "<left>", to = ":vertical resize+5<CR>", mode = mode_nv },
 	{ from = "<right>", to = ":vertical resize-5<CR>", mode = mode_nv },
+	-- Zoom
+	{ from = "<leader>z", to = "<cmd>lua require'config.maximize-panel'.toggle_window()<CR>", mode = mode_nv },
 }
 
 for _, mapping in ipairs(nmappings) do
