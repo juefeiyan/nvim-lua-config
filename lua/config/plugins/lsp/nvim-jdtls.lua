@@ -39,6 +39,7 @@ return {
 
 			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 			local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
+			local home = os.getenv("HOME")
 			os.execute("mkdir " .. workspace_dir)
 			local on_attach = function(client, bufnr)
 				-- require("jdtls.setup").add_commands()
@@ -60,6 +61,7 @@ return {
 						"-Declipse.product=org.eclipse.jdt.ls.core.product",
 						"-Dlog.protocol=true",
 						"-Dlog.level=ALL",
+						"-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
 						"-Xmx8g",
 						"--add-modules=ALL-SYSTEM",
 						"--add-opens",
