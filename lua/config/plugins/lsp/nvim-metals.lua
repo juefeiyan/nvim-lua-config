@@ -23,6 +23,8 @@ return {
 				metals = {
 					runType = "runOrTestFile",
 					--args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+					args = {},
+					jvmOptions = { "--add-exports", "java.base/sun.nio.ch=ALL-UNNAMED" },
 				},
 			},
 			{
@@ -31,6 +33,8 @@ return {
 				name = "Test Target",
 				metals = {
 					runType = "testTarget",
+					args = {},
+					jvmOptions = { "--add-exports", "java.base/sun.nio.ch=ALL-UNNAMED" },
 				},
 			},
 		}
