@@ -24,6 +24,7 @@ return {
 			-- api.config.mappings.default_on_attach(bufnr)
 
 			-- custom mappings
+			vim.keymap.set("n", "yy", api.fs.copy.node, opts("Copy"))
 			vim.keymap.set("n", "l", api.node.open.edit, opts("Open and Edit"))
 			vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
 			vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))

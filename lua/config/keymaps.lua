@@ -1,6 +1,6 @@
 local mode_nv = { "n", "v" }
-local mode_v = { "v" }
-local mode_i = { "i" }
+-- local mode_v = { "v" }
+-- local mode_i = { "i" }
 local nmappings = {
 	-- Movement
 	{ from = "J", to = "5j", mode = mode_nv },
@@ -28,6 +28,10 @@ local nmappings = {
 	{ from = "<right>", to = ":vertical resize-5<CR>", mode = mode_nv },
 	-- Zoom
 	{ from = "<leader>z", to = "<cmd>lua require'config.maximize-panel'.toggle_window()<CR>", mode = mode_nv },
+	-- Copy Paste
+	{ from = "<leader>y", to = '"*y', mode = mode_nv },
+	{ from = "<leader>p", to = '"*p', mode = mode_nv },
+	{ from = "<leader>c", to = 'daw"*p', mode = mode_nv },
 }
 
 for _, mapping in ipairs(nmappings) do

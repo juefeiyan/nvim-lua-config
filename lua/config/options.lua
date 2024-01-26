@@ -12,7 +12,6 @@ vim.o.termguicolors = true
 vim.o.background = "dark" -- colorschemes that can be light or dark will be made dark
 vim.o.signcolumn = "yes" -- show sign column so that text doesn't shift
 vim.o.cursorline = true -- Enable highlighting of the current line
-vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.list = true -- Show some invisible characters (tabs...
 vim.o.pumblend = 10 -- Popup blend
