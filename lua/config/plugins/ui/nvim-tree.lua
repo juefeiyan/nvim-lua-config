@@ -28,6 +28,7 @@ return {
 			vim.keymap.set("n", "l", api.node.open.edit, opts("Open and Edit"))
 			vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
 			vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
+			vim.keymap.set("n", "L", api.node.open.toggle_group_empty, opts("Toggle Group Empty"))
 			vim.keymap.set("n", "dd", api.fs.cut, opts("Cut"))
 			vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
 			vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
@@ -65,9 +66,6 @@ return {
 			},
 			git = {
 				ignore = false,
-			},
-			diagnostics = {
-				enable = true,
 			},
 		})
 
