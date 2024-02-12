@@ -67,6 +67,9 @@ return {
 			git = {
 				ignore = false,
 			},
+			--	diagnostics = {
+			--		enable = true,
+			--	},
 		})
 
 		-- set keymaps

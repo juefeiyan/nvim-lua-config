@@ -23,7 +23,7 @@ return {
 			local jdtls_dir = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 			local config_dir = jdtls_dir .. "/config_mac"
 			local plugin_dir = jdtls_dir .. "/plugins"
-			local path_to_jar = plugin_dir .. "/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar"
+			local path_to_jar = plugin_dir .. "/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
 
 			local root_maker = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 			local root_dir = require("jdtls.setup").find_root(root_maker)
@@ -76,6 +76,21 @@ return {
 						workspace_dir,
 					},
 					root_dir = root_dir,
+					settings = {
+						java = {
+							import = {
+								gradle = {
+									enabled = true,
+									java = {
+										home = os.getenv("JAVA_HOME"),
+									},
+									wrapper = {
+										enabled = true,
+									},
+								},
+							},
+						},
+					},
 					init_options = {
 						bundles = bundles,
 					},

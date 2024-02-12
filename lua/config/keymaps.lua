@@ -31,7 +31,7 @@ local nmappings = {
 	-- Copy Paste
 	{ from = "<leader>y", to = '"*y', mode = mode_nv },
 	{ from = "<leader>p", to = '"*p', mode = mode_nv },
-	{ from = "<leader>c", to = 'daw"*p', mode = mode_nv },
+	{ from = "<leader>c", to = 'dawh"*p', mode = mode_nv },
 }
 
 for _, mapping in ipairs(nmappings) do

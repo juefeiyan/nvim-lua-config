@@ -11,6 +11,7 @@ return {
 			{ from = "<leader>df", to = "<cmd> DapRestartFrame <CR>", mode = mode_nv },
 			{ from = "<leader>dc", to = "<cmd> DapContinue <CR>", mode = mode_nv },
 			{ from = "<leader>du", to = "<cmd>lua require('dapui').toggle() <CR>", mode = mode_nv },
+			{ from = "<leader>dt", to = "<cmd>lua require('jdtls').test_class() <CR>", mode = mode_nv },
 		}
 		for _, mapping in ipairs(nmappings) do
 			vim.keymap.set(mapping.mode or "n", mapping.from, mapping.to, { noremap = true })
