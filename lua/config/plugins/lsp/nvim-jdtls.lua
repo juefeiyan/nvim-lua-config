@@ -23,10 +23,19 @@ return {
 			local jdtls_dir = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 			local config_dir = jdtls_dir .. "/config_mac"
 			local plugin_dir = jdtls_dir .. "/plugins"
-			local path_to_jar = plugin_dir .. "/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
 
 			local root_maker = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 			local root_dir = require("jdtls.setup").find_root(root_maker)
+			local launcher_file_name = ""
+			local launcher_file_prefix = "org.eclipse.equinox.launcher_"
+			local pfile = io.popen('ls -a "' .. plugin_dir .. '"')
+			for filename in pfile:lines() do
+				if filename:sub(1, #launcher_file_prefix) == launcher_file_prefix then
+					launcher_file_name = filename
+				end
+			end
+			pfile:close()
+			local path_to_jar = plugin_dir .. "/" .. launcher_file_name
 
 			if root_dir == "" then
 				return
