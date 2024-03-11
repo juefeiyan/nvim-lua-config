@@ -9,7 +9,7 @@ local nmappings = {
 	{ from = "gk", to = "<cmd>lua vim.lsp.buf.signature_help()<CR>", mode = mode_nv },
 	{ from = "gD", to = "<cmd>lua vim.lsp.buf.hover()<CR>", mode = mode_nv },
 	{ from = "gr", to = "<cmd>Telescope lsp_references<CR>", mode = mode_nv },
-	{ from = "ge", to = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", mode = mode_nv },
+	{ from = "ge", to = "<cmd>lua vim.diagnostic.open_float()<CR>", mode = mode_nv },
 
 	{ from = "[d", to = "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", mode = mode_nv },
 	{ from = "]d", to = "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", mode = mode_nv },
