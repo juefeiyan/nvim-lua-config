@@ -106,9 +106,23 @@ return {
 					-- enable CMP capabilities
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
 				}
-
-				-- Existing server will be reused if the root_dir matches.
 				require("jdtls").start_or_attach(config)
+				local dap = require("dap")
+				dap.configurations.java = {
+					{
+						javaExec = "java",
+						request = "launch",
+						type = "java",
+					},
+					--	{
+					--		type = "java",
+					--		request = "attach",
+					--		name = "Debug (Attach) - Remote",
+					--		hostName = "127.0.0.1",
+					--		port = 5005,
+					--	},
+				}
+				-- Existing server will be reused if the root_dir matches.
 				-- not need to require("jdtls.setup").add_commands(), start automatically adds commands
 			end
 
@@ -116,8 +130,6 @@ return {
 				pattern = "java",
 				callback = attach_jdtls,
 			})
-			-- Avoid race condition by calling attach the first time, since the autocmd won't fire.
-			attach_jdtls()
 		end,
 	},
 }
