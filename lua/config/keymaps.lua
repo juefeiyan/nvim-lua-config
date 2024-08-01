@@ -22,10 +22,10 @@ local nmappings = {
 	{ from = "tl", to = ":+tabnext<CR>", mode = mode_nv },
 
 	-- Change window
-	{ from = "<up>", to = ":res +5<CR>", mode = mode_nv },
-	{ from = "<down>", to = ":res -5<CR>", mode = mode_nv },
-	{ from = "<left>", to = ":vertical resize+5<CR>", mode = mode_nv },
-	{ from = "<right>", to = ":vertical resize-5<CR>", mode = mode_nv },
+	{ from = "<up>", to = "<c-w>k", mode = mode_nv },
+	{ from = "<down>", to = "<c-w>j", mode = mode_nv },
+	{ from = "<left>", to = "<c-w>h", mode = mode_nv },
+	{ from = "<right>", to = "<c-w>l", mode = mode_nv },
 	-- Zoom
 	{ from = "<leader>z", to = "<cmd>lua require'config.maximize-panel'.toggle_window()<CR>", mode = mode_nv },
 	-- Copy Paste

@@ -24,7 +24,7 @@ return {
 			local config_dir = jdtls_dir .. "/config_mac"
 			local plugin_dir = jdtls_dir .. "/plugins"
 
-			local root_maker = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+			local root_maker = { "gradlew", ".git" }
 			local root_dir = require("jdtls.setup").find_root(root_maker)
 			local launcher_file_name = ""
 			local launcher_file_prefix = "org.eclipse.equinox.launcher_"
@@ -87,15 +87,9 @@ return {
 					root_dir = root_dir,
 					settings = {
 						java = {
-							import = {
-								gradle = {
-									enabled = true,
-									java = {
-										home = os.getenv("JAVA_HOME"),
-									},
-									wrapper = {
-										enabled = true,
-									},
+							project = {
+								referencedLibraries = {
+									"/usr/local/lib/antlr-4.13.1-complete.jar",
 								},
 							},
 						},
