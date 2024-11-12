@@ -2,6 +2,7 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 		"jayp0521/mason-null-ls.nvim",
 	},
 	config = function()
@@ -31,6 +32,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"jdtls",
+				"ts_ls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
