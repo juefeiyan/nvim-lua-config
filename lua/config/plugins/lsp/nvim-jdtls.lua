@@ -20,6 +20,8 @@ return {
 		dependencies = { "folke/which-key.nvim" },
 		ft = java_filetypes,
 		config = function()
+      -- Use vim.fn.expand to expand ~ in JAVA_HOME path
+      vim.env.JAVA_HOME = vim.fn.expand("/Library/Java/JavaVirtualMachines/jdk21.0.6.jdk/Contents/Home/")
 			local jdtls_dir = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 			local config_dir = jdtls_dir .. "/config_mac"
 			local plugin_dir = jdtls_dir .. "/plugins"
@@ -71,7 +73,7 @@ return {
 						"-Dlog.protocol=true",
 						"-Dlog.level=ALL",
 						"-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
-						"-Xmx8g",
+						"-Xmx16g",
 						"--add-modules=ALL-SYSTEM",
 						"--add-opens",
 						"java.base/java.util=ALL-UNNAMED",

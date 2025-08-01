@@ -14,7 +14,18 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
-		local opts = { noremap = true, silent = true }
+		local opts = {
+      noremap = true,
+      silent = true,
+			servers = {
+				jdtls = {},
+			},
+			setup = {
+				jdtls = function()
+					return true -- avoid duplicate servers
+				end,
+			},
+    }
 		local on_attach = function(client, bufnr)
 			require("config.lsp-keymap").loadKeyMap(bufnr)
 		end
@@ -42,7 +53,7 @@ return {
 			},
 		})
 
-		lspconfig["ts_ls"].setup({
+		lspconfig["tsserver"].setup({
 			on_attach = on_attach,
 		})
 		-- configure lua server (with special settings)

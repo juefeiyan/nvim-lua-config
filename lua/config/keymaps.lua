@@ -32,6 +32,10 @@ local nmappings = {
 	{ from = "<leader>y", to = '"*y', mode = mode_nv },
 	{ from = "<leader>p", to = '"*p', mode = mode_nv },
 	{ from = "<leader>c", to = 'dawh"*p', mode = mode_nv },
+
+	-- Git
+	{ from = "<leader>gh", to = ":diffg LO<CR>" },
+	{ from = "<leader>gl", to = "diffg RE<CR>" },
 }
 
 for _, mapping in ipairs(nmappings) do
