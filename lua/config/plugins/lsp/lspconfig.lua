@@ -19,6 +19,7 @@ return {
       silent = true,
 			servers = {
 				jdtls = {},
+        terraformls = {},
 			},
 			setup = {
 				jdtls = function()

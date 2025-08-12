@@ -24,6 +24,9 @@ return {
 			root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 			-- setup formatters & linters
 			sources = {
+        null_ls.builtins.formatting.packer,
+        null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.diagnostics.terraform_validate,
 				null_ls.builtins.diagnostics.mypy,
 				null_ls.builtins.diagnostics.ruff,
 				null_ls.builtins.formatting.black,

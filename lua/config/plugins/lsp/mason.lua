@@ -33,6 +33,7 @@ return {
 				"pyright",
 				"jdtls",
 				"ts_ls",
+        "tflint"
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
