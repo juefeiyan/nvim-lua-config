@@ -6,9 +6,6 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -43,7 +40,7 @@ return {
 		end
 
 		-- configure python server
-		lspconfig["pyright"].setup({
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -54,11 +51,11 @@ return {
 			},
 		})
 
-		lspconfig["tsserver"].setup({
+		vim.lsp.config("ts_ls", {
 			on_attach = on_attach,
 		})
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -77,5 +74,7 @@ return {
 				},
 			},
 		})
+
+		vim.lsp.enable({ "pyright", "ts_ls", "lua_ls" })
 	end,
 }
